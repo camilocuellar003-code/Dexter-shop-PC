@@ -1,0 +1,225 @@
+/* --- Animación para el fondo metálico movible --- */
+@keyframes fluidMetal {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* --- Animación para el marco RGB --- */
+@keyframes rgbBorder {
+    0% { border-color: #ff0000; box-shadow: 0 0 10px #ff0000; }
+    33% { border-color: #00ff00; box-shadow: 0 0 10px #00ff00; }
+    66% { border-color: #0000ff; box-shadow: 0 0 10px #0000ff; }
+    100% { border-color: #ff0000; box-shadow: 0 0 10px #ff0000; }
+}
+
+/* Configuración General */
+body {
+    background: linear-gradient(-45deg, #000000, #003300, #00ff41, #000000);
+    background-size: 400% 400%;
+    animation: fluidMetal 10s ease infinite;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+/* Header y Navegación */
+header {
+    background-color: rgba(0, 0, 0, 0.85); 
+    border-bottom: 2px solid #00ff41;
+    padding: 20px 5%;
+}
+
+/* Ajuste de distancia entre logos, barra y usuario */
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 40px; /* DISTANCIA entre logos (azules), barra y usuario */
+    margin-bottom: 20px;
+}
+
+/* --- BARRA DE BÚSQUEDA BIEN CENTRADA --- */
+.search-container {
+    display: flex;
+    flex: 1; /* Permite que crezca y se mantenga al centro */
+    max-width: 600px;
+    filter: drop-shadow(0 0 15px #00ff41);
+}
+
+.contenedor-grid {
+  display: grid;
+  place-items: center; /* Centra en ambos ejes automáticamente */
+  height: 100vh;
+}
+     
+.contenedor-centrado {
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    height: 10vh;           
+    margin: 0;              
+}
+       
+
+.search-container input {
+    flex: 1;
+    padding: 12px 20px;
+    border-radius: 25px 0 0 25px;
+    border: 2px solid #00ff41;
+    background: #000;
+    color: #00ff41;
+    outline: none;
+}
+
+.search-container button {
+    padding: 10px 25px;
+    border-radius: 0 25px 25px 0;
+    border: 2px solid #00ff41;
+    border-left: none;
+    background-color: #00ff41;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* --- MENÚ PRINCIPAL --- */
+.main-menu ul {
+    list-style: none;
+    display: flex;
+    justify-content: center; /* Centra el menú */
+    gap: 30px; /* Distancia entre opciones del menú */
+    padding: 15px 0 0 0;
+    margin: 0;
+    border-top: 1px solid rgba(0, 255, 65, 0.3);
+}
+
+.main-menu a {
+    text-decoration: none;
+    color: #00ff41; /* Verde eléctrico */
+    font-weight: bold;
+    font-size: 1rem;
+    text-transform: uppercase;
+    transition: 0.3s;
+    letter-spacing: 1px;
+}
+
+.main-menu a:hover {
+    color: #fff;
+    text-shadow: 0 0 10px #00ff41;
+}
+
+/* Carrito y Usuario */
+.user-cart {
+    display: flex;
+    gap: 25px; /* Espacio entre ícono usuario y carrito */
+    font-size: 1.4rem;
+    align-items: center;
+}
+
+.cart-container {
+    cursor: pointer;
+    position: relative;
+}
+
+#cart-count {
+    background-color: #00ff00;
+    color: #000;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 50%;
+    position: absolute;
+    top: -8px;
+    right: -10px;
+}
+
+/* --- GRID DE PRODUCTOS CON MARCO RGB --- */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 40px 5%;
+}
+
+.product-card {
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    border-radius: 10px;
+    border: 3px solid #ff0000; 
+    animation: rgbBorder 5s linear infinite;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+}
+
+.price {
+    font-size: 1.4rem;
+    color: #00ff41;
+    text-shadow: 0 0 5px #00ff41;
+    font-weight: bold;
+}
+
+.btn-buy {
+    background: linear-gradient(90deg, #003300, #00ff41);
+    color: black;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+/*---------------------------------------------------------------------------------------*/
+.marco-rgb {
+    padding: 25px 50px;
+    border: 6px solid;
+    border-image-slice: 1;
+    /* Gradiente inicial */
+    border-image-source: linear-gradient(45deg, #ff0000, #00ff00, #0000ff);
+    animation: rgb-border 4s linear infinite;
+    display: inline-block;
+}
+
+/* Texto Verde Neón Metálico */
+.section-title {
+    font-size: 4rem;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    
+    /* Efecto Metálico con Degradado */
+    background: linear-gradient(
+        to bottom, 
+        #51018f 0%,   /* Brillo superior metalizado */
+        #51018f 40%,  /* Verde neón principal */
+        #f200ff 50%,  /* Sombra profunda metálica */
+        #51018f 60%,  /* Reflejo inferior */
+        #51018f 100%
+    );
+    
+    /* Aplicar degradado solo al texto */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    /* Resplandor Neón (Glow) */
+    filter: drop-shadow(0 0 10px #6aff00) 
+            drop-shadow(0 0 20px #1a5e12);
+}
+
+/* Animación para el ciclo de colores del marco */
+@keyframes rgb-border {
+    0% { border-image-source: linear-gradient(0deg, #ff0000, #00ff00, #0000ff); }
+    25% { border-image-source: linear-gradient(90deg, #00ff00, #0000ff, #ff0000); }
+    50% { border-image-source: linear-gradient(180deg, #0000ff, #ff0000, #00ff00); }
+    75% { border-image-source: linear-gradient(270deg, #ffff00, #ff00ff, #00ffff); }
+    100% { border-image-source: linear-gradient(360deg, #ff0000, #00ff00, #0000ff); }
+}

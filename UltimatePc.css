@@ -1,0 +1,194 @@
+/* --- Animación para el fondo metálico movible --- */
+@keyframes fluidMetal {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* --- Animación para el marco RGB de las tarjetas --- */
+@keyframes rgbBorder {
+    0% { border-color: #ff0000; box-shadow: 0 0 15px #ff0000; }
+    33% { border-color: #00ff00; box-shadow: 0 0 15px #00ff00; }
+    66% { border-color: #0000ff; box-shadow: 0 0 15px #0000ff; }
+    100% { border-color: #ff0000; box-shadow: 0 0 15px #ff0000; }
+}
+
+/* Configuración General */
+body {
+    background: linear-gradient(-45deg, #000000, #003300, #001a00, #000000);
+    background-size: 400% 400%;
+    animation: fluidMetal 12s ease infinite;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Header y Navegación (Se mantiene intacto) */
+header {
+    background-color: rgba(0, 0, 0, 0.9); 
+    border-bottom: 2px solid #00ff41;
+    padding: 20px 5%;
+}
+
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 40px;
+}
+
+/* --- BARRA DE BÚSQUEDA --- */
+.search-container {
+    display: flex;
+    flex: 1;
+    max-width: 600px;
+    filter: drop-shadow(0 0 10px #00ff41);
+}
+
+.search-container input {
+    flex: 1;
+    padding: 12px 20px;
+    border-radius: 25px 0 0 25px;
+    border: 2px solid #00ff41;
+    background: #000;
+    color: #00ff41;
+    outline: none;
+}
+
+.search-container button {
+    padding: 10px 25px;
+    border-radius: 0 25px 25px 0;
+    border: 2px solid #00ff41;
+    border-left: none;
+    background-color: #00ff41;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* --- MENÚ PRINCIPAL --- */
+.main-menu ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 15px 0 0 0;
+    margin: 0;
+    border-top: 1px solid rgba(0, 255, 65, 0.2);
+}
+
+.main-menu a {
+    text-decoration: none;
+    color: #00ff41;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.main-menu a:hover {
+    color: #fff;
+    text-shadow: 0 0 10px #00ff41;
+}
+
+/* --- CENTRADO DEL TÍTULO SECCIÓN --- */
+.contenedor-centrado {
+    display: flex;
+    justify-content: center; 
+    align-items: center;    
+    padding: 40px 0;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 3rem;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-weight: 900;
+    
+    /* Efecto Metálico Púrpura/Rosa según tu código */
+    background: linear-gradient(
+        to bottom, 
+        #51018f 0%, 
+        #f200ff 50%, 
+        #51018f 100%
+    );
+    
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 15px rgba(81, 1, 143, 0.8));
+}
+
+/* --- GRID DE PRODUCTOS (Solo Ultimate PC) --- */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    padding: 20px 8%;
+    justify-items: center;
+}
+
+.product-card {
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 25px;
+    text-align: center;
+    border-radius: 15px;
+    border: 3px solid #ff0000; 
+    animation: rgbBorder 6s linear infinite;
+    transition: transform 0.4s ease, filter 0.3s ease;
+    max-width: 350px;
+}
+
+.product-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    filter: brightness(1.2);
+}
+
+.product-card img {
+    border-radius: 10px;
+    margin-bottom: 15px;
+    max-width: 100%;
+}
+
+.price {
+    font-size: 1.6rem;
+    color: #00ff41;
+    text-shadow: 0 0 8px rgba(0, 255, 65, 0.5);
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+.specs {
+    font-size: 0.85rem;
+    color: #bbb;
+    margin: 5px 0;
+    line-height: 1.4;
+}
+
+.btn-buy {
+    background: linear-gradient(90deg, #004d00, #00ff41);
+    color: black;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    width: 100%;
+    transition: 0.3s;
+}
+
+.btn-buy:disabled {
+    background: #333;
+    color: #777;
+    cursor: not-allowed;
+}
+
+.btn-buy:hover:not(:disabled) {
+    box-shadow: 0 0 20px #00ff41;
+    letter-spacing: 1px;
+}

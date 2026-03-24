@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Hardware - E-commerce</title>
+    <link rel="stylesheet" href="UltimatePc.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="top-nav">
+            <div class="logos-marcas">
+                <img src="xpg-publicidad.jpg" alt="XPG" width="100">
+                <img src="nzxt-Publicidad.jpg" alt="NZXT" width="100">
+                <img src="msi-publicidad.jpg" alt="MSI" width="100">
+            </div>
+
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Buscar productos...">
+                <button onclick="searchProduct()"><i class="fas fa-search">🔍</i></button>
+            </div>
+
+            <div class="user-cart">
+                <div class="user-icon">👤</div>
+                <div class="cart-container" onclick="toggleCart()">
+                    <span class="cart-icon">🛒</span>
+                    <span id="cart-count">0</span>   
+                </div>
+            </div>
+        </nav>
+
+        <nav class="main-menu">
+            <ul>
+                <li><a href="index.html">INICIO</a></li>
+                <li><a href="soporte.html">Soporte Técnico</a></li>
+                <li><a href="Productos.html">PRODUCTOS</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="contenedor-centrado">
+            <h2 class="section-title">PRODUCTOS DESTACADOS: ULTIMATE PC</h2>
+        </div>
+       
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="Computadora-ULTIMATE-PC-DAWNBRINGER-1.png" alt="PC DAWNBRINGER" width="200">
+                <div class="product-info">
+                    <h3>Computadora ULTIMATE PC DAWNBRINGER</h3>
+                    <p class="specs">Computadora ULTIMATE PC DAWNBRINGER / NZXT EDITION</p>
+                    <p class="specs">RTX 5070 Ti 16GB GDDR7 / AMD Ryzen 7 9700X / 32GB RAM DDR5</p>
+                    <p class="specs">2TB SSD M.2 PCIe Gen4 / 850W 80+ GOLD</p>
+                    <p class="price">$57,999.00</p>
+                    <button class="btn-buy" onclick="addToCart()">CON EXISTENCIA</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="Computadora-ULTIMATE-PC-INTERSTELLAR.png" alt="PC INTERSTELLAR" width="200">
+                <div class="product-info">
+                    <h3>Computadora ULTIMATE PC INTERSTELLAR</h3>
+                    <p class="specs">Computadora ULTIMATE PC INTERSTELLAR / NZXT EDITION</p>
+                    <p class="specs">RTX 5070 Ti 16GB GDDR7 / AMD Ryzen 7 9800X3D / 48GB RAM DDR5</p>
+                    <p class="specs">2TB SSD M.2 PCIe Gen4 / 850W 80+ GOLD</p>
+                    <p class="price">$69,999.00</p>
+                    <button class="btn-buy" style="cursor: default;" disabled>SIN EXISTENCIA</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="Computadora-ULTIMATE-PC-NOCTIS.png" alt="PC NOCTIS" width="200">
+                <div class="product-info">
+                    <h3>Computadora ULTIMATE PC NOCTIS</h3>
+                    <p class="specs">Computadora ULTIMATE PC NOCTIS / NZXT EDITION</p>
+                    <p class="specs"> RTX 5060 Ti 16GB GDDR7 / AMD Ryzen 5 9600X / 32GB RAM DDR5</p>
+                    <p class="specs">1TB SSD M.2 PCIe Gen4 / 750W 80+ BRONZE</p>
+                    <p class="price">$36,499.00</p>
+                    <button class="btn-buy" onclick="addToCart()">CON EXISTENCIA</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        let cartCount = 0;
+        function addToCart() {
+            cartCount++;
+            document.getElementById('cart-count').innerText = cartCount;
+            alert("Producto añadido al carrito");
+        }
+
+        function searchProduct() {
+            let query = document.getElementById('searchInput').value;
+            alert("Buscando: " + query);
+        }
+
+        function toggleCart() {
+            alert("Tienes " + cartCount + " productos en tu carrito.");
+        }
+    </script>
+</body>
+</html>

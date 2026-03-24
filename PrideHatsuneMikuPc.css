@@ -1,0 +1,193 @@
+/* --- Animaciones de Fondo Metálico Movible --- */
+@keyframes fluidMetal {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* --- Animación de Marco RGB para la tarjeta --- */
+@keyframes rgbBorder {
+    0% { border-color: #ff0000; box-shadow: 0 0 15px #ff0000; }
+    33% { border-color: #00ff00; box-shadow: 0 0 15px #00ff00; }
+    66% { border-color: #0000ff; box-shadow: 0 0 15px #0000ff; }
+    100% { border-color: #ff0000; box-shadow: 0 0 15px #ff0000; }
+}
+
+/* Configuración General */
+body {
+    /* Fondo oscuro con degradado de metal fluido (mantenido) */
+    background: linear-gradient(-45deg, #000000, #003300, #001a00, #000000);
+    background-size: 400% 400%;
+    animation: fluidMetal 12s ease infinite;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Header y Navegación (Se mantiene igual que el original) */
+header {
+    background-color: rgba(0, 0, 0, 0.9); 
+    border-bottom: 2px solid #00ff41;
+    padding: 20px 5%;
+}
+
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 40px;
+}
+
+/* --- BARRA DE BÚSQUEDA NEÓN --- */
+.search-container {
+    display: flex;
+    flex: 1;
+    max-width: 600px;
+    filter: drop-shadow(0 0 10px #00ff41);
+}
+
+.search-container input {
+    flex: 1;
+    padding: 12px 20px;
+    border-radius: 25px 0 0 25px;
+    border: 2px solid #00ff41;
+    background: #000;
+    color: #00ff41;
+    outline: none;
+}
+
+.search-container button {
+    padding: 10px 25px;
+    border-radius: 0 25px 25px 0;
+    border: 2px solid #00ff41;
+    border-left: none;
+    background-color: #00ff41;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* --- MENÚ PRINCIPAL --- */
+.main-menu ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 15px 0 0 0;
+    margin: 0;
+    border-top: 1px solid rgba(0, 255, 65, 0.2);
+}
+
+.main-menu a {
+    text-decoration: none;
+    color: #00ff41;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.main-menu a:hover {
+    color: #fff;
+    text-shadow: 0 0 10px #00ff41;
+}
+
+/* Carrito y Usuario (estilo base para que no se vea el texto azul) */
+.user-cart {
+    display: flex;
+    gap: 25px;
+    font-size: 1.4rem;
+    align-items: center;
+    color: #ffffff; /* Asegura que el icono usuario y carrito sean blancos */
+}
+
+/* --- CAMBIO CLAVE: CENTRADO DE UNA SOLA PC --- */
+.contenedor-centrado {
+    display: flex;
+    flex-direction: column; /* Apila el título y luego la tarjeta */
+    justify-content: center; /* Centra verticalmente en la sección de contenido */
+    align-items: center;    /* Centra horizontalmente */
+    padding: 60px 20px;     /* Aumenta el padding para que no se pegue al header */
+    text-align: center;
+    gap: 40px;              /* Espacio elegante entre el título y la tarjeta */
+    min-height: 80vh;       /* Asegura que el bloque esté centrado en la pantalla */
+}
+
+/* Texto Metálico Púrpura (Mantenido) */
+.section-title {
+    font-size: 3rem;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-weight: 900;
+    line-height: 1.2; /* Ajusta el espacio entre líneas para el salto de <br> */
+    
+    background: linear-gradient(
+        to bottom, 
+        #51018f 0%, 
+        #f200ff 50%, 
+        #51018f 100%
+    );
+    
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 15px rgba(81, 1, 143, 0.8));
+}
+
+/* --- AJUSTE DE LA TARJETA ÚNICA --- */
+.product-card {
+    background-color: rgba(0, 0, 0, 0.85); /* Fondo negro translúcido para que resalte */
+    padding: 30px;
+    text-align: center;
+    border-radius: 15px;
+    border: 3px solid #ff0000; 
+    animation: rgbBorder 6s linear infinite; /* Marco RGB animado */
+    transition: transform 0.4s ease, filter 0.3s ease;
+    max-width: 400px; /* Un poco más ancha para que se vea mejor sola en el centro */
+    width: 100%;
+}
+
+.product-card:hover {
+    transform: translateY(-10px) scale(1.05); /* Efecto hover elegante */
+}
+
+.product-card img {
+    border-radius: 10px;
+    margin-bottom: 20px;
+    max-width: 100%; /* Asegura que la imagen no se desborde */
+}
+
+/* Precio Verde Neón (Mantenido) */
+.price {
+    font-size: 1.8rem;
+    color: #00ff41;
+    text-shadow: 0 0 8px rgba(0, 255, 65, 0.5);
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+/* Especificaciones Grises Claros (Mantenido) */
+.specs {
+    font-size: 0.9rem;
+    color: #bbb;
+    margin: 8px 0;
+    line-height: 1.4;
+}
+
+/* Botón de Compra Neón (Mantenido) */
+.btn-buy {
+    background: linear-gradient(90deg, #004d00, #00ff41);
+    color: black;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    width: 100%; /* Botón ocupa todo el ancho de la tarjeta */
+    transition: 0.3s;
+    margin-top: 10px;
+}

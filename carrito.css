@@ -1,0 +1,147 @@
+/* --- Estilos de Base --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Fondo Negro y Verde Metálico difuminado */
+    background: radial-gradient(circle at center, #00441b 0%, #001a0a 40%, #000000 100%);
+    background-attachment: fixed;
+}
+
+/* --- Tarjeta de Resumen --- */
+.summary-card {
+    background: rgba(0, 0, 0, 0.85); /* Fondo negro sólido con transparencia */
+    width: 100%;
+    max-width: 400px;
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid #2ecc71; /* Borde neón sutil */
+    box-shadow: 0 0 30px rgba(0, 255, 100, 0.15);
+    text-align: center;
+}
+
+.summary-title {
+    color: #2ecc71;
+    font-size: 1.6rem;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(46, 204, 113, 0.3);
+}
+
+/* --- Filas de Precios --- */
+.summary-content {
+    margin-bottom: 30px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    color: #b3b3b3;
+    font-size: 1.1rem;
+}
+
+.summary-row.total {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #1a5e37;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.total-amount {
+    color: #2ecc71;
+    text-shadow: 0 0 15px rgba(46, 204, 113, 0.6);
+}
+
+/* --- Botones Estilo Metálico --- */
+.actions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.btn {
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+/* Continuar: Verde Metálico */
+.btn-continue {
+    color: #ffffff;
+    background: linear-gradient(145deg, #2ecc71, #1e8449);
+    box-shadow: 
+        0 4px 0 #145a32,
+        inset 0 1px 1px rgba(255, 255, 255, 0.4);
+    border: 1px solid #27ae60;
+}
+
+.btn-continue:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #145a32, 0 0 20px rgba(46, 204, 113, 0.4);
+}
+
+.btn-continue:active {
+    transform: translateY(2px);
+    box-shadow: 0 0 0 #145a32;
+}
+
+/* Cancelar: Gris/Negro Metálico */
+.btn-cancel {
+    background: linear-gradient(145deg, #444, #111);
+    color: #999;
+    border: 1px solid #555;
+    box-shadow: 0 4px 0 #000;
+}
+
+.btn-cancel:hover {
+    color: #ff4d4d;
+    border-color: #ff4d4d;
+    box-shadow: 0 6px 0 #000;
+}
+
+.btn-cancel:active {
+    transform: translateY(2px);
+    box-shadow: 0 0 0 #000;
+}
+
+/* Efecto de Brillo (Luz recorriendo el botón) */
+.btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -100%;
+    width: 50%;
+    height: 200%;
+    background: linear-gradient(
+        to right, 
+        rgba(255,255,255,0) 0%, 
+        rgba(255,255,255,0.2) 50%, 
+        rgba(255,255,255,0) 100%
+    );
+    transform: rotate(30deg);
+}
+
+.btn:hover::after {
+    left: 150%;
+    transition: 0.7s ease-in-out;
+}
